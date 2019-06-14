@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif,Arial ;
+}
+
+.imgBx img{
+    width: 100%;
+}
+
+.headerText p {
+    font-weight: 400;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.headerText > h4 {
+    margin-top: .5in;
+    font-weight: 900;   
+}
+
+.backwardBtn {
+    background: none;
+    border: 0;
+    color: black;
+}
+
+.postingContainer {
+    border: 1px solid #DADADA;
+    width: 65%;
+    height: 500px;
+}
+
+.containerHeading {
+
+    margin: 0px -30px 0px -30px;
+    line-height: 70px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.ddBtn {
+    padding: 0px 15px 0px 0px;
+    margin: 0px -40px 0px -15px;
+}
+
+.verticalBtns {
+    background: none;
+    border-radius: 0;
+    border: 1px solid #DADADA;
+    width: 432px;
+    height: 50px;
+    color: grey
+}
+.verticalBtns:hover {
+    background: none;
+    background-color: #ccd5d6;
+    border-radius: 0;
+    border: 1px solid #DADADA;
+    width: 432px;
+    height: 50px;
+    color: #002f34;
+}
+.verticalBtns:active {
+    background-color: #ccd5d6;
+    border-radius: 0;
+    border: 1px solid #DADADA;
+    width: 432px;
+    height: 50px;
+    color: #002f34;
+}
+
+.dd-align {
+    width: 100px;
+}
+.dd-align a {
+    text-align: center;
+}
+
+.dd-align button {
+    text-align: center;
+}
+
+.dd-menu {
+    padding: 0;
+    border-radius:0;
+    overflow: hidden;
+}
+.dd-item {
+    background: none;
+    border-radius: 0;
+    border: 1px solid #DADADA;
+    width: 432px;
+    height: 50px;
+    color: grey;
+    line-height: 40px;
+
+}
+.containerHeading2 {
+    padding: 0px 0px 40px 20px;
+    margin: 0px -30px 0px -30px;
+    border-bottom: 1px solid #DADADA;
+    line-height: 70px;
+    font-weight: 700;
+    font-size: 22px;   
+}
+.containerHeading3 {
+    padding: 0px 0px 40px 20px;
+    margin: 0px -30px 0px -30px;
+    line-height: 70px;
+    font-weight: 700;
+    font-size: 22px;   
+}
+
+.spacing {
+    padding: 23px;
+}
+
+.postingContainer2 {
+    border: 1px solid #DADADA;
+    width: 65%;
+    height: 220vh;
+}
+
+.profile-container {
+    margin-top: 20px;
+    height: 400px;
+}

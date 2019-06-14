@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Quiz App for HTML Test.">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="./images/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>OLX APP</title>
+</head>
+
+<body>
+
+    <nav style="height:65px; border-bottom:1px solid #dadada; "
+        class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img style="width:65px; height:45px; margin-right: -5 "
+                    src="./images/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input style="border:2px solid black; border-radius:0; width: 190px; height: 48px;"
+                                class="form-control ml-sm-2" type="search" placeholder="Pakistan" aria-label="Search">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input id="selector"
+                                style="border:2px solid black; border-radius:0; width: 570px; height: 48px;"
+                                class="form-control ml-sm-2 searchBar" type="search"
+                                placeholder="Find Car, Mobile Phones and more..." aria-label="Search">
+                            <button style=" background: #2a65ea; border-radius: 0; width:50px; height: 48px;"
+                                class="btn btn-primary my-2 my-sm-0" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+                    <li id="logBtn" class="nav-item">
+                        <a style="padding: 12px; color:#2a65ea;font-size: 16px; font-weight: 700; margin: 0px 5px 0px 5px; "
+                            class="nav-link" href="./pages/form1.html">LOGIN</a>
+                    </li>
+                    <li id="lgObtn" class="nav-item">
+                        <div class="dropdown dd-align">
+                            <button
+                                style="border-radius:0; border:none; font-size: 15px; font-weight: 700; width: 100px; background: none; color: #002f34;"
+                                class="btn btn-secondary dropdown-toggle dd-style-align" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <img src="./images/030-user.png" width="35px" height="35px" alt="">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a id="disUserName" class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="./pages/ads.html"><i class="fas fa-th"></i> My Ads</a>
+                                <a class="dropdown-item" href="./pages/profile.html"><i class="far fa-user-circle"></i>
+                                    My Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <button class="dropdown-item" onClick="logOut()"><i class="fas fa-sign-out-alt"></i>
+                                    Logout</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onClick="sell()"
+                                style="font-size: 18px; font-weight: 800; width:100px; height: 48px; border-radius: 0; background: #2a65ea;"><i
+                                    class="fas fa-camera-retro"></i> <span
+                                    style="text-decoration: none; color:white; margin-left: 5px;">SELL</span></button>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div style="margin-top:0.7in;">
+        <nav style="background:white; height:45px; border-bottom:1px solid #dadada; "
+            class="navbar navbar-expand-lg fixed ">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-lg-auto">
+                        <div class="dropdown">
+                            <button
+                                style="border-radius:0; border:none; font-size: 15px; font-weight: 700; background: none; color: #002f34;"
+                                class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                BROWSE BY CATEGORY
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#mobile">Mobiles / Tablets</a>
+                                <a class="dropdown-item" href="#vehicles">Vehicles</a>
+                                <a class="dropdown-item" href="#bikes">Bikes</a>
+                                <a class="dropdown-item" href="#furniture">Furnitures</a>
+                                <a class="dropdown-item" href="#electronic">Electronics</a>
+                                <a class="dropdown-item" href="#properties">Properties</a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section>
+        <div class="content">
+            <div class="imgBx">
+                <img src="./images/template.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div class="headerText text-left">
+                        <h4>Popular Categories</h4>
+                        <p>
+                            Browse through some of our most popular categories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="indexRowPoster" class="row">
+            </div>
+            <div id="indexRowPosterv" class="row">
+            </div>
+            <div id="indexRowPosterb" class="row">
+            </div>
+            <div id="indexRowPosterf" class="row">
+            </div>
+            <div id="indexRowPostere" class="row">
+            </div>
+            <div id="indexRowPosterp" class="row">
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/popper.js"></script>
+    <script src="./js/all.js"></script>
+    <script src="./js/sweetalert.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/indexPosters.js"></script>
+
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            indexAdsLoader()
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => {
+                        console.log('service worker')
+                    })
+            }
+        })
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

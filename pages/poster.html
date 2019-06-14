@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Quiz App for HTML Test.">
+    <link rel="shortcut icon" href="../images/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="../css/all.css"> -->
+    <link rel="stylesheet" href="../css/style.css">
+    <title>OLX APP</title>
+</head>
+
+<body>
+    <header>
+        <nav style="height:75px; border-bottom:1px solid #dadada; "
+            class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <button
+                    style="cursor: pointer; background: none; border: none; padding:0px; color:black;font-size: 16px; font-weight: 700; margin: 0px 20px 0px 5px; "
+                    class="nav-link" onClick="back()"><i class="fas fa-arrow-left"></i></button>
+                <a class="navbar-brand" href="#"><img style="float:left;width:65px; height:45px; margin-right: -5 "
+                        src="../images/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div style="margin-top:1.2in;">
+    </div>
+
+    <section>
+        <div style="margin-bottom:15px;" class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 ">
+                    <h3 class="headingText text-center" style="font-weight:800; font-size:25px;letter-spacing: 2px;">
+                        POST YOUR AD</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container postingContainer2">
+            <div class="container ">
+                <h5 class="containerHeading2">SELECTED CATEGORY</h5>
+            </div>
+            <div class="container posterForm">
+                <h4 class="containerHeading3">INCLUDE SOME DETAILS</h4>
+                <div class="spacing">
+                    <select class="custom-select" id="category">
+                        <option selected>Select Category</option>
+                        <option value="mobile">Mobiles/Tablets</option>
+                        <option value="vehicles">Vehicles</option>
+                        <option value="bikes">Bikes</option>
+                        <option value="furniture">Furnitures</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="Properties">Properties</option>
+                    </select>
+                </div>
+                <div class="spacing">
+                    <select class="custom-select" id="condition">
+                        <option selected>Condition</option>
+                        <option value="used">Used</option>
+                        <option value="new">New</option>
+                    </select>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="title" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" placeholder="Brand / Ad Title">
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="form-group">
+                            <textarea id="description" class="form-control" rows="3"
+                                placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="price" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" placeholder="Price">
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <form>
+                        <div class="form-group ">
+                            <label for="product">Upload Product Image.</label>
+                            <input type="file" class="form-control-file" id="imgFile">
+                        </div>
+                    </form>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="location" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" placeholder="Location">
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="name" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="phone" class="form-control" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default" placeholder="Phone Number">
+                        </div>
+                    </div>
+                </div>
+                <div class="spacing">
+                    <div>
+                        <div>
+                            <button class="btn btn-success" id="postBtn" onClick="post()">POST</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/sweetalert.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            indexAdsLoader()
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(() => {
+                        console.log('service worker')
+                    })
+            }
+        })
+
+    </script>
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

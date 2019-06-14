@@ -1,0 +1,313 @@
+  //     wel.innerHTML += "<h2>" + "You don't have permission to access this page without login" + "</h2>"
+    // }
+    // document.getElementById("myForm").style.display = "none";
+    // document.getElementById("myFormA").style.display = "none";
+
+
+    // var userUid = localStorage.getItem("userData");
+    // console.log(userUid)
+    // let ref = firebase.database().ref("Ads/" + categories).child(userUid).on("value", (data) => {
+    //     // let userData = [];
+    //     // for(let key in snapshot.val()){
+    //     //     console.log(snapshot.val())
+    //     // }
+    //     let a = Object.entries(data.val())
+    //     console.log(a)
+    // })
+
+
+
+
+
+
+     <!-- Dropdown menu links -->
+                                    <button
+                                        style="cursor: pointer; background: none; border: none; padding:0px; color:#2a65ea;font-size: 16px; font-weight: 700; line-height: 50px; margin: 0px 5px 0px 5px; "
+                                        class="dropdown-item nav-link" onClick="myAds()"><i class="fas fa-th"></i> My
+                                        Ads
+                                    </button>
+                                    <button
+                                        style="cursor: pointer; background: none; border: none; padding:0px; color:#2a65ea;font-size: 16px; font-weight: 700; line-height: 50px; margin: 0px 5px 0px 5px; "
+                                        class="dropdown-item nav-link" onClick="myProfile()"><i
+                                            class="far fa-user-circle"></i> My Profile
+                                    </button>
+                                    <button
+                                        style="cursor: pointer; background: none; border: none; padding:0px; color:#2a65ea;font-size: 16px; font-weight: 700; line-height: 50px; margin: 0px 5px 0px 5px; "
+                                        class="dropdown-item nav-link" onClick="logOut()">LOGOUT
+                                    </button>
+
+
+
+function profile(){
+    document.getElementById("nav2").style.display = "none";
+    document.getElementById("indexPic").style.display = "none";
+    document.getElementById("logInBtn").style.display = "none";
+    document.getElementById("logOutBtn").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("profileDiv").style.display = "block";
+    let userUid = firebase.auth().currentUser.uid;
+    firebase.database().ref("/users").child(userUid).on("value", (snapshot)=>{
+    var name = snapshot.val().name;
+    var email = snapshot.val().signUpEmail;
+    var phone = snapshot.val().phone;
+    console.log(name)
+    console.log(email)
+    console.log(phone)
+    document.getElementById("nameDiv").innerHTML = `<p id=nameProfile>Name: ${name}</P>`;
+    document.getElementById("emailDiv").innerHTML = `<p id=emailProfile>Email: ${email}</P>`;
+    document.getElementById("phoneDiv").innerHTML = `<p id=phoneProfile>Phone: ${phone}</P>`;
+    })
+}
+function myAdds(){
+    document.getElementById("nav2").style.display = "none";
+    document.getElementById("indexPic").style.display = "none";
+    document.getElementById("logInBtn").style.display = "none";
+    document.getElementById("logOutBtn").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("profileDiv").style.display = "none";
+    let userUid = firebase.auth().currentUser.uid;
+    firebase.database().ref("posts/Bikes").child(userUid).on("value", (addMobiles)=>{
+        console.log(addMobiles.val())
+    })
+    firebase.database().ref("posts/Mobiles").child(userUid).on("value", (addMobiles)=>{
+        console.log(addMobiles.val())
+    })
+    firebase.database().ref("posts/Vehicles").child(userUid).on("value", (addVehicles)=>{
+        console.log(addVehicles.val())
+    })
+}
+
+
+
+document.getElementById('userInfo').innerHTML += `<span>${data.displayName}</span><br><span>${data.uid}</span><br><span>${data.email}</span>`
+
+
+
+ let userUid = firebase.auth().currentUser.uid;
+  let gettedInfo =localStorage.getItem("userData")
+  let gettedData = JSON.parse(gettedInfo)
+  if(gettedData.user !== 'null'){
+    console.log(gettedData.displayName);
+    document.getElementById('userInfo').innerHTML += `<span>${gettedData.displayName}</span>`
+  }
+  else{
+    document.getElementById('userInfo').innerHTML += `<span>Please Signin First</span>`
+  }
+
+
+
+    firebase.database().ref(`Ads/${categories}`).child(userUid).push(post)
+          .then((success) => {
+            // localStorage.setItem("Posts",JSON.stringify(post))
+            // window.location = "../index.html"
+            console.log(success)
+          })
+          .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            swal({
+              text: errorMessage,
+              title: "Error",
+              icon: "error",
+              button: "Ok"
+            })
+          })
+      }
+
+
+      fetching
+      function myAdds(){
+    document.getElementById("nav2").style.display = "none";
+    document.getElementById("indexPic").style.display = "none";
+    document.getElementById("logInBtn").style.display = "none";
+    document.getElementById("logOutBtn").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("profileDiv").style.display = "none";
+    let userUid = firebase.auth().currentUser.uid;
+    firebase.database().ref("posts/Bikes").child(userUid).on("child_added", (addBikes)=>{
+        var mobCategory = addBikes.val().category;
+        var mobMake = addBikes.val().make;
+        var mobTitle = addBikes.val().title;
+        var mobCondition = addBikes.val().condition;
+        var mobPrice = addBikes.val().price;
+        var mobLocation = addBikes.val().location;
+        var mobDescription = addBikes.val().description;
+        var mobImgae = addBikes.val().file;
+        document.getElementById("mobAdd").innerHTML += `<div style="border:2px solid black;" id=storageImg><img src=${mobImgae}></div>
+                                                        <div style="border:2px solid black;"><p>Category: ${mobCategory}</p>
+                                                        <p>Title: ${mobMake}</p>
+                                                        <p>Title: ${mobTitle}</p>
+                                                        <p>Condition: ${mobCondition}</p>
+                                                        <p>Price: ${mobPrice}</p>
+                                                        <p>Location: ${mobLocation}</p>
+                                                        <p>Description: ${mobDescription}</p>
+                                                        </div><br/>`
+    })
+    firebase.database().ref("posts/Mobiles").child(userUid).on("child_added", (addMobiles)=>{
+        // console.log(addMobiles.val().make)
+    })
+    firebase.database().ref("posts/Vehicles").child(userUid).on("value", (addVehicles)=>{
+        // console.log(addVehicles.val())
+    })
+    firebase.database().ref("posts/Furniture").child(userUid).on("value", (addFurniture)=>{
+        // console.log(addFurniture.val())
+    })
+}
+
+
+
+
+
+
+  
+        // for(var key in userOwnData){
+        //   for(var key1 in userOwnData[key]){
+        //     for(var key2 in userOwnData[key][key1])
+        //     console.log(userOwnData.files)
+        //   }
+        // }
+      // var mobCategory = addBikes.val().category;
+        // var mobMake = addBikes.val().make;
+        // var mobTitle = addBikes.val().title;
+        // var mobCondition = addBikes.val().condition;
+        // var mobPrice = addBikes.val().price;
+        // var mobLocation = addBikes.val().location;
+        // var mobDescription = addBikes.val().description;
+        // var mobImgae = addBikes.val().file;
+
+
+        './pages/ads.html',
+    './pages/form1.html',
+    './pages/form2.html',
+    './pages/poster.html',
+    './pages/postingAdd.html',
+    './pages/profile.html',
+    './css/bootstrap.css',
+    './css/main.css',
+    './css/all.css',
+    './css/util.css',
+    './js/all.js',
+    './js/bootstrap.js',
+    './js/form-main.js',
+    './js/indexPosters.js',
+    './js/jquery.js',
+    './js/main.js',
+    './js/popper.js',
+    './js/profileData.js',
+    './js/show.js',
+    './js/sweetalert.js',
+
+
+    firebase use  --add olxapp-web.....
+
+
+
+    
+// window.addEventListener("load", async (){
+//   await load();
+// })
+
+
+// // load data when page load
+// async function load() {
+//   await firebase.auth().onAuthStateChanged(function (user) {
+//     if (user === null || user === "undefined" || userUid === "") {
+//       console.log("NULL")
+//       swal.fire({
+//         title: 'you are logout',
+//         imageUrl: '../images/wrong.png',
+//         showConfirmButton: false,
+//         padding: "1em"
+//       })
+
+//       setTimeout(() => {
+//         location = '../index.html'
+//       }, 1500)
+//     }
+//     else if (user) {
+//       var userUid = firebase.auth().currentUser.uid;
+//       // localStorage.setItem("userId", JSON.stringify(userId))
+//       // console.log(userId)
+//     }
+//     // console.log(userId)
+//     firebase.database().ref(`Ads/${categories}`).child(userUid)
+//       .once("value", (data) => {
+//         var currentUserData = data.val();
+//         // console.log(currentUserData)
+//         document.title = currentUserData.firstName + " " + currentUserData.lastName;
+//         document.getElementById("profileName").innerHTML = currentUserData.firstName + " " + currentUserData.lastName;
+//         document.getElementById("profileImg").setAttribute("src", currentUserData.profile)
+//       })
+
+//     firebase.database().ref("post/")
+//       .once("value", (data) => {
+
+//         let post = data.val()
+//         if (post === null) {
+//           document.getElementById("post").innerHTML = `
+//               <div class="container text-center shadow p-3 mb-5 bg-white rounded">
+//                   <h4 class="text-muted" style="font-family: 'Montserrat', sans-serif;">No Post yet...</h4>
+//               </div>`
+//         }
+
+//         else {
+//           // console.log(post)
+//           for (var a in post) {
+
+//             for (var b in post[a]) {
+//               // console.log(post[a][b])
+
+//               document.getElementById("post").innerHTML += `
+
+//                   <div class="col-sm-12 shadow p-3 mb-5 bg-white rounded" key="${post[a].keyId}">
+//                   <img id="acceptorImg" src="${post[a][b].profile}" />
+//                   <span class="accepName text-info">${post[a][b].firstName} ${post[a][b].lastName}</span>
+//                   <span class="address">${post[a][b].country}, ${post[a][b].zip}</span>
+
+//                   <!-- Default dropleft button -->
+//                   <div class="btn-group dropleft">
+//                       <i class="fas fa-ellipsis-h text-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//                       </i>
+//                       <div class="dropdown-menu shadow mb-5 bg-white rounded">
+//                           <ul class="dropDownUl" style="">
+//                           <li style="border-bottom:2px solid #2ecc71; text-transform:uppercase; color:#2ecc71; font-size:18px">acceptor detail</li>
+//                           <li><b>Email:</b> <a href="mailto:${post[a][b].email}" class="link text-info">${post[a][b].email}</a></li>
+//                           <li><b>Mobile No:</b> <a href="tel:${post[a][b].mobileCode}${post[a][b].mobileNumber}" class="link text-info">${post[a][b].mobileCode}${post[a][b].mobileNumber}</a></li>
+//                           <li><b>Occupation:</b> <em class="text-info">${post[a][b].profession}</em></li>
+//                           <li><b>Age:</b> <em class="text-info">${post[a][b].age}</em></li>
+//                           <li><b>Address:</b> <em class="text-info">${post[a][b].city}, ${post[a][b].state}, ${post[a][b].zip}</em></li>
+//                           <li><b>Country:</b> <em class="text-info">${post[a][b].country}</em></li>
+//                           </ul>
+//                       </div>
+//                   </div>
+
+//                   <!-- alert -->
+//                   <div class="alert alert-danger" role="alert">
+//                       <span  class="text-danger" style="font-family: 'Arvo', serif;">EMERGENCY <i class="fas fa-bullhorn text-danger" style="float:right;position: relative;top: 8px;color: #b2bec3"></i></span> 
+//                   </div>
+
+//                   <!-- more detail -->
+//                   <div id="moreDetailDiv" class="moreDetailDiv">
+//                   <p>${post[a][b].moreDetail}</p>
+//                   </div>
+//                   <!-- list -->
+//                   <div class="listDiv">
+//                       <h3 class="listHeader">Patient Info</h3>
+//                       <hr/>
+//                       <ul>
+//                           <li><span class="counter">1</span> <span class="detailLabel">Paitent Name:</span> <span class="patientDetail" id="patientName">${post[a][b].exportorName}</span></li>
+//                           <br />
+//                           <li><span class="counter">2</span> <span class="detailLabel">Gender:</span> <span class="patientDetail" id="patientGender">${post[a][b].exportorGender}</span></li>
+//                           <br />
+//                           <li><span class="counter">3</span> <span class="detailLabel">Patient Age:</span> <span class="patientDetail" id="patientAge">${post[a][b].exportorAge}</span></li>
+//                           <br />
+//                           <li><span class="counter">4</span> <span class="detailLabel">Address:</span> <span class="patientDetail" id="patienAddress">${post[a][b].location}</span></li>
+//                       </ul>
+//                   </div>
+//                   </div>`
+//             }
+//           }
+//         }
+//       })
+//   })
+// }
